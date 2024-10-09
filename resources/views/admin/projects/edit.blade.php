@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h2>Aggiungi nuovo progetto</h2>
+                <h2>Modifica progetto</h2>
             </div>
             <div class="col-12">
                 @if ($errors->any())
@@ -16,8 +16,9 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('admin.projects.store') }}" method="post">
+                <form action="{{ route('admin.projects.update', ['project' =>  $project->id]) }}" method="post">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-12">
                             <label for="" class="control-label">Nome progetto</label>
